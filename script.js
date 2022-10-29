@@ -71,7 +71,7 @@ function calcIncome() {
 
 
 function factorial() {
-    var x, y, z;
+    var x, y, z;    
     x = 1;
     y = 1;
     z = document.getElementById("input-number").value;
@@ -112,3 +112,54 @@ function factorial() {
   
   document.getElementById("result-number").value = x/y;
   }
+
+
+let valueName = document.getElementById('employee-name');
+let valueDays = document.getElementById('days-worked');
+let valueDaily = document.getElementById('dailyrate');
+let valueDeduc = document.getElementById('deduc');
+let valueIndex = document.getElementById('index');
+let outputValue = document.getElementById('output-value');
+let btnAdd = document.getElementById('addBtn');
+let btnDel = document.getElementById('delBtn');
+
+let tablesList = [];
+
+function addToList() {
+    let list = {
+        name: valueName.value,
+        days: valueDays.value,
+        daily: valueDaily.value,
+        deduction: valueDeduc.value,
+    }
+    tablesList.push(list)
+}
+
+function tablesListItems() {
+    let tableBody = '<tbody>'
+    tablesList.forEach((value, index) => {
+        tableBody += `<tr>
+        <td>${index}</td>
+        <td>${value.name}</td>
+        <td>${value.days}</td>
+        <td>${value.daily}</td>
+        <td>${parseInt(value.daily) * parseInt(value.days)}</td>
+        <td>${value.deduction}</td>
+        <td>${parseInt(value.days) * parseInt(value.daily) - parseInt(value.deduction)}</td>
+    </tr>`
+    })
+    return tableBody + '</tbody>'
+
+}
+
+btnAdd.addEventListener('click', () => {
+    addToList()
+    outputValue.innerHTML = tablesListItem()
+  })
+  
+  btnDel.addEventListener('click', () => {
+    if (confirm('Are you sure? Data cannot be retrieved')) {
+      tablesList.splice(parseInt(valueIndex.value), 1)
+      outputValue.innerHTML = tablesListItem()
+    }
+  })

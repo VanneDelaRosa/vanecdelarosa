@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Payroll Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container-payroll">
+    <h1 class="header-payroll">
+        Simple Payroll Calculator
+    </h1>
+    <label for="employee-name" class="labels-for-input">State your name: </label>
+    <input id="employee-name" type="text" class="info">
+    <br>
+    <label for="days-worked" class="labels-for-input">Days Worked: </label>
+    <input id="days-worked" type="number" class="info">
+    <br>
+    <label for="dailyrate" class="labels-for-input">Daily Rate: </label>
+    <input id="dailyrate" type="number" class="info">
+    <br>
+    <label for="deduc" class="labels-for-input">Deduction Amount: </label>
+    <input id="deduc" type="number" class="info">
+    <button class="btn-1" id="addBtn">Add</button>
+    <br>
+    <label for="index" class="labels-for-input">Select the line to delete: </label>
+    <input id="index" class="input-index info" type="number">
+    <button class="btn-1" id="delBtn">Delete</button>
+    <p><a href="index.html" class="back-to-homepage">Back to Homepage</a></p>
+</div>
+    <div class="container-table">
+        <table class="table-payroll">
+        <thead>
+            <tr class="table-items-payroll">
+                <th>No.</th>
+                <th>Employee Name</th>
+                <th>Days Worked</th>
+                <th>Daily Rate</th>
+                <th>Gross Pay</th>
+                <th>Deduction Amount</th>
+                <th>Net Pay</th>
+            </tr>
+        </thead>
+        <tbody id="output-value"></tbody>
+        </table>
+        
+    </div>
+<script>
+let valueName = document.getElementById('employee-name');
+let valueDays = document.getElementById('days-worked');
+let valueDaily = document.getElementById('dailyrate');
+let valueDeduc = document.getElementById('deduc');
+let valueIndex = document.getElementById('index');
+let outputValue = document.getElementById('output-value');
+let btnAdd = document.getElementById('addBtn');
+let btnDel = document.getElementById('delBtn');
+
+let tablesList = [];
+
+function addToList() {
+    let list = {
+        name: valueName.value,
+        days: valueDays.value,
+        daily: valueDaily.value,
+        deduction: valueDeduc.value,
+    }
+    tablesList.push(list)
+}
+
+function tablesListItems() {
+    let tableBody = '<tbody>'
+    tablesList.forEach((value, index) => {
+        tableBody += `<tr>
+        <td>${index}</td>
+        <td>${value.name}</td>
+        <td>${value.days}</td>
+        <td>${value.daily}</td>
+        <td>${parseInt(value.daily) * parseInt(value.days)}</td>
+        <td>${value.deduction}</td>
+        <td>${parseInt(value.days) * parseInt(value.daily) - parseInt(value.deduction)}</td>
+    </tr>`
+    })
+    return tableBody + '</tbody>'
+
+}
+
+btnAdd.addEventListener('click', () => {
+    addToList()
+    outputValue.innerHTML = tablesListItems()
+  })
+  
+  btnDel.addEventListener('click', () => {
+    if (confirm('Are you sure? Data cannot be retrieved')) {
+      tablesList.splice(parseInt(valueIndex.value), 1)
+      outputValue.innerHTML = tablesListItems()
+    }
+  })
+</script>
+</body>
+</html>
