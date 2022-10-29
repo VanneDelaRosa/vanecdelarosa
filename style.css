@@ -209,6 +209,22 @@ nav .navbar .nav-links .links li:hover .js-sub-menu{
     color: #19647E;
 }
 
+.back-to-homepage-conversion {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    top: 75px;
+    left: 325px;
+    transition: all 0.3s ease;
+    border: 1px solid #19647E;
+    padding: 5px;
+}
+.back-to-homepage-conversion:hover {
+    color: #19647E;
+    background: rgb(221, 214, 214);
+    border-radius: 20px;
+}
+
 
 /* income-tax  */
 
@@ -249,17 +265,17 @@ nav .navbar .nav-links .links li:hover .js-sub-menu{
     margin-left: 40px;
 }
 
-.back-to-homepage {
+.back-to-homepage-income {
     text-decoration: none;
     color: black;
     position: relative;
-    top: 75px;
+    top: 45px;
     left: 295px;
     transition: all 0.3s ease;
     border: 1px solid #19647E;
     padding: 5px;
 }
-.back-to-homepage:hover {
+.back-to-homepage-income:hover {
     color: #19647E;
     background: rgb(221, 214, 214);
     border-radius: 20px;
@@ -312,17 +328,17 @@ input {
     background:#19647E;
 }
 
-.back-to-homepage {
+.back-to-homepage-factorial {
     text-decoration: none;
     color: black;
     position: relative;
-    top: 540px;
-    left: 370px;
+    top: 50px;
+    left: 215px;
     transition: all 0.3s ease;
     border: 1px solid #19647E;
     padding: 5px;
 }
-.back-to-homepage:hover {
+.back-to-homepage-factorial:hover {
     color: #19647E;
     background: rgb(221, 214, 214);
     border-radius: 20px;
@@ -387,17 +403,17 @@ input {
 
 }
 
-.back-to-homepage {
+.back-to-homepage-payroll {
     text-decoration: none;
     color: black;
     position: relative;
-    top: 540px;
-    left: 370px;
+    bottom: 100px;
+    left: 600px;
     transition: all 0.3s ease;
     border: 1px solid #19647E;
     padding: 5px;
 }
-.back-to-homepage:hover {
+.back-to-homepage-payroll:hover {
     color: #19647E;
     background: rgb(221, 214, 214);
     border-radius: 20px;
