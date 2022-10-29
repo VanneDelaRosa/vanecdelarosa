@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial, Sum, and Average</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;600&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: #C7C7D1;
+}
+.container-factorial {
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -300px;
+    border: 2px solid #19647E;
+}
+
+input {
+    text-align: center;
+}
+
+.header-factorial {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.insert-number, .final-result {
+    position: relative;
+    left: 210px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 2px solid #40404F;
+    border-radius: 25px;
+    height: 30px;
+}
+
+.btn-average, .btn-factorial, .btn-sum {
+    width: 100px;
+    position: relative;
+    left: 130px;
+    transition: all 0.3s ease;
+   
+}
+
+.btn-average:hover, .btn-factorial:hover, .btn-sum:hover  {
+    border-radius: 25px;
+    background:#19647E;
+}
+
+.back-to-homepage {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    top: 85px;
+    left: 210px;
+    transition: all 0.3s ease;
+    border: 1px solid #19647E;
+    padding: 5px;
+}
+.back-to-homepage:hover {
+    color: #19647E;
+    background: rgb(221, 214, 214);
+    border-radius: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="container-factorial">
+        <h1 class="header-factorial">Factorial, Sum, and Average</h1>
+        <input id="input-number" class="insert-number"type="number" placeholder="Please put a number">
+        <br>    
+        <input id="result-number" class="final-result" type="number" placeholder="Result">
+        <br>
+        <button class="btn-factorial" onclick=factorial()>Factorial</button>
+        <button class="btn-sum" onclick=sum()>Sum</button>
+        <button class="btn-average" onclick=average()>Average</button>
+        <p><a href="index.html" class="back-to-homepage">Back to Homepage</a></p>
+    </div>
+   
+
+<script>
+    function factorial() {
+    var num1, num2, num3;
+    num1 = 1;
+    num2 = 1;
+    num3 = document.getElementById("input-number").value;
+    
+    while(num2 <= num3) {
+      num1 = num1 * num2;
+      num2++;
+    }
+  
+  document.getElementById("result-number").value = num1;
+  }
+  
+  function sum() {
+  var num1,num2,num3;
+
+  num1 = "";
+  num2 = document.getElementById("input-number").value;
+  num3 = document.getElementById("input-number").value;
+  
+  do {
+    ++num2
+    num1 = (num2*num3)/2;
+  
+  }
+  while(num3 > num2)
+  
+  document.getElementById("result-number").value = num1;
+  }
+  
+  function average() {
+    var num1,num2,num3;
+  num1 = 0
+  num2 = document.getElementById("input-number").value;
+  num3 = 1
+  
+  for (let i = 1; i <= num2; i++){
+    num1 += i;
+  }
+  
+  document.getElementById("result-number").value = num1/num2;
+  }
+</script>>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax</title>
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;600&display=swap');
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: #C7C7D1;
+
+}
+
+
+.container-income-tax {
+    width: 700px;
+    height: 300px;
+    /* background: red; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+    margin-left: -350px;
+    border: 2px solid #19647E;
+}
+.income-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.input-income {
+    margin-left: 20px;
+}
+
+.result-income {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.result-input {
+    position: relative;
+    left: 9px;
+   
+}
+
+.btn-income {
+    margin-top: 20px;
+    position: relative;
+    left: 295px;
+    margin-left: 40px;
+}
+
+.back-to-homepage {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    top: 75px;
+    left: 295px;
+    transition: all 0.3s ease;
+    border: 1px solid #19647E;
+    padding: 5px;
+}
+.back-to-homepage:hover {
+    color: #19647E;
+    background: rgb(221, 214, 214);
+    border-radius: 20px;
+}
+    </style>
+</head>
+<body>
+<div class="container-income-tax">
+    <h1 class="income-header">Income Tax Calculator</h1>
+        <label class="input-income input-input">Please input your income:</label>
+        <input id="income-input" type="number" class="input-income">
+        <br>
+        <label  class="result-income">This is your income tax:</label>
+        <input id="result-income" type="number" class="result-income result-input">
+        <br>
+        <button type="button" class="btn-income" onclick=calcIncome()>Calculate!</button>
+        <p><a href="index.html" class="back-to-homepage">Back to Homepage</a></p>
+</div>
+<script>
+    function calcIncome() {
+    income = document.getElementById("income-input").value*1;
+    let taxableIncome;
+    
+    if (income > 8000000) {
+      taxableIncome = (document.getElementById("income-input").value-8000000)*(35/100)+2410000;
+   } else if (income > 2000000){
+    taxableIncome = (document.getElementById("income-input").value-2000000)*(32/100)+490000;
+   } else if (income > 800000) {
+    taxableIncome = (document.getElementById("income-input").value-800000)*(30/100)+130000;
+   } else if (income > 400000) {  
+    taxableIncome = (document.getElementById("income-input").value-400000)*(25/100)+30000;
+   } else if (income > 250000) {
+    taxableIncome = (document.getElementById("income-input").value-250000)*(20/100);
+   } else  {
+    taxableIncome = document.getElementById("income-input").value*0;
+   }      
+    
+    
+
+  document.getElementById("result-income").value = taxableIncome;
+}
+
+</script>
+</body>
+</html>
